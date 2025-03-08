@@ -14,10 +14,11 @@ def test_has_form_page(page: Page):
     page.goto("http://localhost:5173/")
 
     # Click the get started link.
-    page.get_by_role("link", name="Go to Form").click()
+    page.get_by_role("link", name="Get moving").click()
 
     # check if route has changed
-    expect(page.url).to_equal("http://localhost:5173/form")
+    expect(page).to_have_url(re.compile(".*/form/?$"))
 
-    # Expects page to have a heading with the name of Installation.
-    expect(page.get_by_role("heading", name="Installation")).to_be_visible()
+    # Expects page to have a heading with the name of Moving Data.
+    expect(page.get_by_test_id("moving-form-heading")).to_be_visible()
+    expect(page.get_by_test_id("moving-form-heading")).to_have_text(re.compile("Let's get Moving"))
