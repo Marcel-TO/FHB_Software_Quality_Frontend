@@ -16,4 +16,5 @@ class Watchman:
 
     def test_all(self):
         playwright_tests.test_has_title(self.page)
-        # pytest.test_has_form_page(self.page)
+        playwright_tests.test_has_form_page(self.page)
+        playwright_tests.test_fill_form(self.page)
