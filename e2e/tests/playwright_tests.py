@@ -43,3 +43,17 @@ def test_fill_form(page: Page):
 
     # Verify form submission
     expect(page.get_by_text("Form submitted successfully")).to_be_visible()
+
+def test_form_validation(page: Page):
+    """Test form validation."""
+    page.goto("http://localhost:5173/form")
+
+    # Submit the form without filling out any fields
+    page.get_by_role("button", name="Submit").click()
+
+    # Verify form validation errors
+    expect(page.get_by_text("Name is required")).to_be_visible()
+    expect(page.get_by_text("Invalid email address")).to_be_visible()
+    expect(page.get_by_text("Invalid Date")).to_be_visible()
+    expect(page.get_by_text("From Address is required")).to_be_visible()
+    expect(page.get_by_text("To Address is required")).to_be_visible()
