@@ -35,7 +35,8 @@ def test_fill_form(page: Page):
     page.get_by_label("Name").fill("Test User")
     page.get_by_label("Email").fill("test@example.com")
     page.get_by_label("Date").fill("2024-01-01")
-    page.get_by_label("Address").fill("123 Test Street")
+    page.get_by_label("From Address").fill("123 Test Street")
+    page.get_by_label("To Address").fill("456 Example Road")
 
     # Submit the form
     page.get_by_role("button", name="Submit").click()
