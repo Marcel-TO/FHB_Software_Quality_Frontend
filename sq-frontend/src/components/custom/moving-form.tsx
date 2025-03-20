@@ -27,8 +27,8 @@ import { ArrowLeftIcon } from "lucide-react";
 const formSchema = z.object({
     name: z.string().min(1, 'Name is required'),
     email: z.string().email('Invalid email address'),
-    fromAddress: z.string().min(1, 'Address is required'),
-    toAddress: z.string().min(1, 'Address is required'),
+    fromAddress: z.string().min(1, 'From Address is required'),
+    toAddress: z.string().min(1, 'To Address is required'),
     date: z.string().refine((val) => !isNaN(Date.parse(val)), 'Invalid date'),
 });
 
@@ -83,7 +83,6 @@ export function MovingForm({
                                             <Input
                                                 {...field}
                                                 placeholder="John Doe"
-                                                required
                                             />
                                         </FormControl>
                                         <FormDescription>
@@ -104,7 +103,6 @@ export function MovingForm({
                                             <Input
                                                 {...field}
                                                 placeholder="123 Main St"
-                                                required
                                             />
                                         </FormControl>
                                         <FormDescription>
@@ -125,7 +123,6 @@ export function MovingForm({
                                             <Input
                                                 {...field}
                                                 placeholder="456 Elm St"
-                                                required
                                             />
                                         </FormControl>
                                         <FormDescription>
@@ -146,7 +143,6 @@ export function MovingForm({
                                             <Input
                                                 {...field}
                                                 type="date"
-                                                required
                                             />
                                         </FormControl>
                                         <FormDescription>
@@ -168,7 +164,6 @@ export function MovingForm({
                                                 {...field}
                                                 type="email"
                                                 placeholder="john.doe@email.at"
-                                                required
                                             />
                                         </FormControl>
                                         <FormDescription>
